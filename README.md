@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+To View Live Demo visit : https://sportzinteractive.netlify.app/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
