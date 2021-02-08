@@ -5,8 +5,6 @@ export default function Player() {
   const [player, setPlayer] = useState([]);
   const [name, setName] = useState("");
   const handleChange = (e) => {
-    console.log(e.target.value);
-
     setName(e.target.value);
   };
 
@@ -20,16 +18,27 @@ export default function Player() {
 
   return (
     <div>
-        <input
+      <input
         className="search"
         type="text"
         value={name}
         placeholder="search player..."
         onChange={handleChange}
       />
-      {player.filter(item=>item.PFName.toLowerCase().includes(name.toLowerCase())).map((item) => (
-        <Playerlist item={item} match={item.UpComingMatchesList} />
-      ))}
+      {player
+        .filter(
+          (item) =>
+            item.PFName.toLowerCase().includes(name.toLowerCase()) ||
+            item.TName.toLowerCase().includes(name.toLowerCase())
+        )
+        .map((item, index) => (
+          
+          <Playerlist
+            key={index}
+            item={item}
+            match={item.UpComingMatchesList}
+          />
+        ))}
     </div>
   );
 }
